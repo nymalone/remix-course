@@ -1,5 +1,6 @@
 import {
   Links,
+  Link,
   LiveReload,
   Meta,
   Outlet,
@@ -29,6 +30,35 @@ export default function App() {
           <MainNavigation />
         </header>
         <Outlet />
+        <ScrollRestoration />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  )
+}
+
+// This component will be rendered by Remix instead of the App component if an error is thrown anywhere in your app
+export function ErrorBoundary({ error }) {
+  return (
+    <html lang="en">
+      <head>
+        <Meta />
+        <Links />
+        <title>An error occurred!</title>
+      </head>
+      <body>
+        <header>
+          {/* shared component between pages */}
+          <MainNavigation />
+        </header>
+        <main className="error">
+          <h1>An error occurred!</h1>
+          <p>{error.message}</p>
+          <p>
+            Back to <Link to="/">safety</Link>
+          </p>
+        </main>
         <ScrollRestoration />
         <Scripts />
         <LiveReload />
