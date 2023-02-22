@@ -55,6 +55,13 @@ export function links() {
   return [...newNoteLinks(), ...noteListLinks()] // surfacing styles
 }
 
+export function meta() {
+  return {
+    title: 'All Notes',
+    description: 'Manage your notes with ease',
+  }
+}
+
 // Will catch and render error responses
 export function CatchBoundary() {
   const caughtResponse = useCatch()
